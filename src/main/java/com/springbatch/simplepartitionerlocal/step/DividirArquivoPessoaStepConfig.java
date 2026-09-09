@@ -6,6 +6,7 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.MultiResourceItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,7 +16,7 @@ public class DividirArquivoPessoaStepConfig {
     private StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Step dividirArquivoPessoaStep(FlatFileItemReader<Pessoa> pessoaReader, MultiResourceItemWriter<Pessoa> pessoaWriter){
+    public Step dividirArquivoPessoaStep(@Qualifier("arquivoPessoaReader")  FlatFileItemReader<Pessoa> pessoaReader, MultiResourceItemWriter<Pessoa> pessoaWriter){
        return stepBuilderFactory.get("dividirArquivoPessoaStep")
                .<Pessoa, Pessoa>chunk(2000)
                .reader(pessoaReader)
