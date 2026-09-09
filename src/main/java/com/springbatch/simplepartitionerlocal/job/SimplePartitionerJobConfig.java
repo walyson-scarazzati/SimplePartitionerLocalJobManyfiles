@@ -31,7 +31,7 @@ public class SimplePartitionerJobConfig {
 	}
 
     @Bean
-    private Flow dividirArquivosFlow(@Qualifier("dividirArquivoPessoaStep") Step dividirArquivoPessoaStep,
+    public Flow dividirArquivosFlow(@Qualifier("dividirArquivoPessoaStep") Step dividirArquivoPessoaStep,
                                      @Qualifier("dividirArquivoDadosBancariosStep") Step dividirArquivoDadosBancariosStep) {
         return new FlowBuilder<Flow>("dividirArquivosFlow")
                 .start(dividirArquivoPessoaStep)
