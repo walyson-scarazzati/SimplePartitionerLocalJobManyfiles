@@ -28,7 +28,7 @@ public class MigrarPessoaStepConfig {
     @Bean
     public Step migrarPessoaManager(
             @Qualifier("pessoaPartitioner") Partitioner pessoaPartitioner,
-            @Qualifier("arquivoPessoaPartitionerReader")ItemStreamReader<Pessoa> arquivoPessoaReader,
+            @Qualifier("arquivoPessoaPartitionReader")ItemStreamReader<Pessoa> arquivoPessoaReader,
             JdbcBatchItemWriter<Pessoa> pessoaWriter,
             TaskExecutor taskExecutor){
         return stepBuilderFactory

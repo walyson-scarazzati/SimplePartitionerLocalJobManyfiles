@@ -19,8 +19,8 @@ public class SimplePartitionerJobConfig {
 	private JobBuilderFactory jobBuilderFactory;
 
 	@Bean
-	public Job simplePartitionerJob(@Qualifier("migrarPessoaStep") Step migrarPessoaStep,
-			@Qualifier("migrarDadosBancariosStep") Step migrarDadosBancariosStep) {
+	public Job simplePartitionerJob(@Qualifier("migrarPessoaManager") Step migrarPessoaStep,
+			@Qualifier("migrarDadosBancariosManager") Step migrarDadosBancariosStep) {
 		return jobBuilderFactory.get("simplePartitionerJob")
 				.start(dividirArquivosFlow(null, null))
 				//.next(migrarPessoaStep)
