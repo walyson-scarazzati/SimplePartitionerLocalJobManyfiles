@@ -33,3 +33,5 @@ build/
 .vscode/
 
 files/*
+src/main/.DS_Store
+src/.DS_Store

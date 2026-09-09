@@ -42,7 +42,7 @@ public class MigrarPessoaStepConfig {
 
 	@Bean
 	public Step migrarPessoaStep(
-			ItemReader<Pessoa> arquivoPessoaReader,
+			@Qualifier("arquivoPessoaPartitionerReader") ItemReader<Pessoa> arquivoPessoaReader,
             JdbcBatchItemWriter<Pessoa> pessoaWriter) {
 		return stepBuilderFactory
 				.get("migrarPessoaStep")

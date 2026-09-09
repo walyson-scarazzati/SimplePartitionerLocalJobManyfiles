@@ -40,7 +40,8 @@ public class MigrarDadosBancariosStepConfig {
     }
 
 	@Bean
-	public Step migrarDadosBancariosStep(ItemReader<DadosBancarios> arquivoDadosBancariosReader,
+	public Step migrarDadosBancariosStep(
+			@Qualifier("dadosBancariosPartitionerReader") ItemReader<DadosBancarios> arquivoDadosBancariosReader,
 			JdbcBatchItemWriter<DadosBancarios> bancoDadosBancariosWriter) {
 		return stepBuilderFactory
 				.get("migrarDadosBancariosStep")
